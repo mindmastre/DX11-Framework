@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\8.0\Redist\D3D\x86;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\Common;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\minizip\win32\lib;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\pcre\lib\vc9;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\libxml2\win32\lib;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\8.0\Redist\D3D\x86;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\Common;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\minizip\win32\lib;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\pcre\lib\vc9;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\libxml2\win32\lib;$(LibraryPath)</LibraryPath>
     <ExecutablePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -56,12 +56,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;DOM_EXPORT;DOM_DYNAMIC;NO_BOOST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\include\1.4;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\include\1.4;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d11.lib;d3dx11.lib;D3DCompiler.lib;dxerr.lib;dxgi.lib;dxguid.lib;d3d9.lib;d3dx9.lib;libcollada14dom22-d.lib;libxml2_a.lib;zlib.lib;wsock32.lib;pcre-d.lib;pcrecpp-d.lib;minizip-d.lib;libboost_filesystem-d.lib;libboost_system-d.lib;d3dx11d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;effects11d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ProjectReference>
