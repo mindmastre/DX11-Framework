@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{b608645d-0ba3-4b3e-89be-1779cd1af116}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Header Files">
+      <UniqueIdentifier>{8bc8ab12-209f-43a2-9c9e-4930b57608ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Source Files">
+      <UniqueIdentifier>{10463ec1-d39b-458a-b81a-99bed5483b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files">
+      <UniqueIdentifier>{2f1e3323-8f7b-4ceb-92bd-f4dad0d7bcce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{a599af31-84ea-4532-a9cd-eac09550915a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{fc770a45-ec4a-4a93-97e2-7ab33849bff4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Header Files">
+      <UniqueIdentifier>{178c6ab1-2cdf-42cc-90b4-ba844ab2bfc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Source Files">
+      <UniqueIdentifier>{66ef5839-4331-4b2b-b11e-e08d4e70ccbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{d18ee710-903e-4d6e-aec9-9211f8e677c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Header Files">
+      <UniqueIdentifier>{02f6f21f-1c1e-4340-bcbc-0a5c8ca9d68a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Source Files">
+      <UniqueIdentifier>{780b6bea-964f-4042-8a96-34b033465f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{d58638e6-53c3-4633-ab26-96714ff9da45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Resources">
+      <UniqueIdentifier>{408c2d0c-913b-4ffe-9e35-7024a3cb76c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Resources\Header Files">
+      <UniqueIdentifier>{ab60d142-cc50-4248-bb3e-ae295112c49f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Resources\Source Files">
+      <UniqueIdentifier>{8000dffd-c549-4896-a346-a7f435f5877a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="WinUtil.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInterface.cpp">
+      <Filter>Game\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOptions.cpp">
+      <Filter>Game\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsInterface.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseEntity.cpp">
+      <Filter>Shared Resources\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Shared Resources\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DApp.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DCamera.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DLight.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DTexture.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DModel.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightShader.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelManager.cpp">
+      <Filter>Graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4D.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WinUtil.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInterface.h">
+      <Filter>Game\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain.h">
+      <Filter>Game\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOptions.h">
+      <Filter>Game\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="INIParser.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsInterface.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinIncludes.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseEntity.h">
+      <Filter>Shared Resources\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DConvertUtil.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Shared Resources\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DApp.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DCamera.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DLight.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DTexture.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DModel.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationDefinitions.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="LightShader.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelManager.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4D.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Settings.INI">
+      <Filter>Game</Filter>
+    </None>
+    <None Include="light.psh">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="light.vsh">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="README.txt" />
+  </ItemGroup>
+</Project>
