@@ -18,7 +18,7 @@ public:
 	bool Initialize(HWND);
 	void Shutdown();
 	void Update(float);
-
+	void CheckKeyInputs(float deltaTime);
 private:
 	bool Render();
 

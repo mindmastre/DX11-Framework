@@ -2,7 +2,7 @@
 #define WINUTIL_H
 
 #include "WinIncludes.h"
-
+#include "Timer.h"
 #include "GameMain.h"
 
 class WinUtil
@@ -15,6 +15,8 @@ public:
 	void Shutdown();
 	void Run();
 
+	float AspectRatio() const;
+	void OnResize();
 private:
 	void InitializeWindows();
 	void ShutdownWindows();
@@ -24,6 +26,10 @@ private:
 	HWND hwnd;
 
 	GameMain* game;
+	//int mClientWidth;
+	//int mClientHeight;
+	Timer gameTimer;
+	void CalculateFrameStats();
 };
 
 static WinUtil* appHandle = 0;

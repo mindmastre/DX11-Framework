@@ -2,6 +2,8 @@
 
 #include "GameOptions.h"
 #include "TextureManager.h"
+#include "INPUTOBJECT.h"
+#include "Utilities.h"
 
 GraphicsInterface::GraphicsInterface()
 {
@@ -191,6 +193,13 @@ void GraphicsInterface::Shutdown()
 void GraphicsInterface::Update(float dt)
 {
 	bool result;
+	//update camera
+	if(INPUT->Check)
+	{
+		camera->Pitch(INPUT->dy);
+		camera->RotateY(INPUT->dx);
+	}
+	CheckKeyInputs(dt);
 	//update models here
 
 	result = Render();
@@ -205,11 +214,16 @@ bool GraphicsInterface::Render()
 	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
 	bool result;
 
+	camera->UpdateViewMatrix();
+
+	viewMatrix = Utilities::ConvertXMMatrix(&camera->View());
+	projectionMatrix = Utilities::ConvertXMMatrix(&camera->Proj());
+	
 	D3D->BeginScene(0.0f, 0.24f, 0.39f, 1.0f);
 
-	camera->Render();
+	//camera->Render();
 
-	camera->GetViewMatrix(viewMatrix);
+	//camera->GetViewMatrix(viewMatrix);
 	D3D->GetWorldMatrix(worldMatrix);
 	D3D->GetProjectionMatrix(projectionMatrix);
 
@@ -224,4 +238,24 @@ bool GraphicsInterface::Render()
 	D3D->EndScene();
 
 	return true;
+}
+
+void GraphicsInterface::CheckKeyInputs(float dt)
+{
+	float MoveMultiplier = 1;
+	if( GetAsyncKeyState(VK_LSHIFT) & 0x8000 )
+		MoveMultiplier = 10;
+
+	// Control the camera.
+	if( GetAsyncKeyState('W') & 0x8000 )
+		camera->Walk(10.0f*dt*MoveMultiplier);
+
+	if( GetAsyncKeyState('S') & 0x8000 )
+		camera->Walk(-10.0f*dt*MoveMultiplier);
+
+	if( GetAsyncKeyState('A') & 0x8000 )
+		camera->Strafe(-10.0f*dt*MoveMultiplier);
+
+	if( GetAsyncKeyState('D') & 0x8000 )
+		camera->Strafe(10.0f*dt*MoveMultiplier);
 }

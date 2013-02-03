@@ -31,7 +31,6 @@ public:
 	void GetOrthoMatrix(D3DXMATRIX&);
 
 	void GetVideoCardInfo(char*, int&);
-
 private:
 	int vSyncEnabled;
 	int videoCardMemory;

@@ -117,6 +117,9 @@
     <ClCompile Include="Vector4D.cpp">
       <Filter>Utilities\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Utilities\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinUtil.h">
@@ -197,17 +200,26 @@
     <ClInclude Include="Vector4D.h">
       <Filter>Utilities\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INPUTOBJECT.h">
+      <Filter>Graphics\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Utilities\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Settings.INI">
       <Filter>Game</Filter>
     </None>
-    <None Include="light.psh">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="light.vsh">
-      <Filter>Shader Files</Filter>
-    </None>
     <None Include="README.txt" />
+    <None Include="Assets\Shaders\light.psh">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="Assets\Shaders\light.vsh">
+      <Filter>Shader Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
