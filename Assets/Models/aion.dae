@@ -205,7 +205,7 @@
     </library_lights>
     <library_images>
         <image id="Diffuse">
-            <init_from>diffuse.tga</init_from>
+            <init_from>diffuse.png</init_from>
         </image>
     </library_images>
     <library_visual_scenes>
