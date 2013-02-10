@@ -1,0 +1,6 @@
+#include "DXBox.h"
+#include "DXSphere.h"
+#include "DXPlane.h"
+#include "DXGeoSphere.h"
+#include "DXCylinder.h"
+#include "DXPyramid.h"

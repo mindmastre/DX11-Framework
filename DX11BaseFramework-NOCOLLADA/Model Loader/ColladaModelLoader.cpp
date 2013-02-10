@@ -1,0 +1,399 @@
+//#include "ColladaModelLoader.h"
+//
+////ColladaModelLoader* g_ModelLoader = 0;
+//
+//ColladaModelLoader::ColladaModelLoader()	
+//{  
+//	dae = new DAE;
+//	root = NULL;
+//	library_visual_scenes = NULL;
+//	library_animations    = NULL;
+//	library_geometries    = NULL;
+//	library_materials     = NULL;
+//	library_effects       = NULL;
+//	library_lights        = NULL;
+//	library_images        = NULL;
+//	m_iModelCount         = 0;
+//}
+//
+//ColladaModelLoader* ColladaModelLoader::getInstance()
+//{
+//	static ColladaModelLoader cml;
+//
+//	return &cml;
+//}
+//
+//ColladaModelLoader::~ColladaModelLoader()
+//{
+//	delete dae;
+//	DAE::cleanup();
+//}
+//
+//bool ColladaModelLoader::IsDuplicate(string fileName)
+//{
+//	bool matchFound = false;
+//	//Loop through the model list and search for a copy
+//	for(unsigned int i = 0; i < m_vModelList.size(); i++)
+//	{
+//		if(m_vModelList.at(i) == fileName)
+//		{
+//			CMESHMANAGER->AddNewMesh(fileName);
+//			matchFound = true;
+//			i = m_vModelList.size();
+//		}
+//	}
+//
+//	if(!matchFound)
+//	{
+//		m_vModelList.push_back(fileName);
+//		return false;
+//	}
+//	else
+//		return true;
+//}
+//
+//int ColladaModelLoader::ReadDaeFile(string fileName, ID3D11Device* d)
+//{
+//	device = d;
+//	if(!IsDuplicate(fileName))
+//	{
+//		//Initialize root node by opening the Dae File and storing it in the root node
+//		root = dae->open(fileName);
+//		if(!root)
+//		{
+//			assert("Document Failed To Import");
+//		}
+//
+//		//Get Library visual scene data
+//		library_visual_scenes = root->getDescendant("library_visual_scenes");
+//		if(!library_visual_scenes)
+//		{
+//			assert("<library_visual_scenes> not found");
+//		}
+//		else
+//		{
+//			ObtainVisualSceneData(library_visual_scenes->getDescendant("visual_scene"));
+//		}
+//		////Get the library animations
+//		library_animations = root->getDescendant("library_animations");
+//		if(!library_animations) 
+//		{
+//			//g_dOutput->AddDataToFile("<library_animations> not found\n");
+//		}
+//		//Get the effects data
+//		library_effects = root->getDescendant("library_effects");
+//		if(!library_effects)
+//		{
+//			assert("<library_effects> not found");
+//		}
+//		else
+//		{
+//			ObtainEffectsData(library_effects);
+//		}
+//		//Get the lights data
+//		library_lights = root->getDescendant("library_lights");
+//		if(!library_lights)
+//		{
+//			assert("<library_lights> not found");
+//		}
+//		else
+//		{
+//			ObtainLightsData(library_lights);
+//		}
+//		//Get the geometries data
+//		library_geometries = root->getDescendant("library_geometries");
+//		if(!library_geometries)
+//		{
+//			assert("<library_geometries> not found");
+//		}
+//		else
+//		{
+//			ObtainGeometriesData(library_geometries);
+//			m_iModelCount++;
+//		}
+//		//Close the .dae file
+//		dae->close(fileName);
+//
+//		//Set the pointers back to NULL, safety precaution for Debug build
+//		root = NULL; 
+//		library_visual_scenes = NULL; 
+//		library_animations = NULL; 
+//		library_geometries = NULL;
+//		library_materials = NULL;
+//		library_effects = NULL;
+//		library_images = NULL;
+//		library_lights = NULL;
+//		return m_iModelCount - 1;
+//	}
+//	else
+//	{
+//		return m_iModelCount++;
+//	}
+//}
+//
+//void ColladaModelLoader::ObtainVisualSceneData(daeElement *visualElement)
+//{
+// 	daeTArray<daeElementRef> nodes = visualElement->getChildren();
+//	bool once = false;
+//	ColladaMesh *m = new ColladaMesh(device,m_vModelList.back());
+//
+//	//Iterate through all of the meshes <nodes> within the visual scene
+//	for(UINT i = 0; i < nodes.getCount();i++)
+//	{
+//		//Get the ID, the SID, the name and the type, if they exist
+//		string Name = nodes[i]->getAttribute("name").data();
+//		string Type = nodes[i]->getAttribute("type").data();
+//		string ID = nodes[i]->getAttribute("id").data();
+//		//Get the texture data
+//		library_images = root->getDescendant("library_images");
+//		//Skip JOINT node's, only meshes
+//		if(Type == "JOINT") continue;
+//		//Get the <instance_controller> node that corresponds to this <node> if it exists
+//		domInstance_controller* instance_controller = NULL;
+//		instance_controller = (domInstance_controller*)nodes[i]->getDescendant("instance_controller");
+//
+//		bool IgnoreAnimation = false;
+//		if(instance_controller && IgnoreAnimation == true)
+//		{
+//			daeElement* controller = instance_controller->getUrl().getElement();
+//			if(!controller) continue;
+//
+//			std:string geometryReference = controller->getDescendant("skin")->getAttribute("source").data();
+//			geometryReference.erase(0, 1);
+//
+//			//Get the <geometry> element by searching using the reference
+//			daeElement* geometry = NULL;
+//			geometry = dae->getDatabase()->idLookup(geometryReference, instance_controller->getDocument());
+//
+//			//If no <geometry> exists that is referenced, skip this
+//			if(!geometry) continue;
+//			
+//			daeElement* rootJoint = NULL;
+//			daeTArray<daeElementRef> Joints = nodes[i]->getDescendant("instance_controller")->getChildren();
+//
+//			//Search all the nodes in this visual_scene for a node that matches one of the Joint's affecting this mesh
+//			for(unsigned int z = 0; z < nodes.getCount(); z++)
+//			{
+//				//Get the Type of this node
+//				string Type = nodes[z]->getAttribute("type").data();
+//					
+//				//If this node isn't a JOINT, skip it
+//				if(!(Type == "JOINT")) continue;
+//
+//				//Get it's ID
+//				string ID = nodes[z]->getAttribute("id").data();
+//
+//				//Check each Joint affecting the mesh to see if this JOINT node matches any of them
+//				for(unsigned int x = 0; x < Joints.getCount(); x++)
+//				{
+//					//Get the joint being referenced
+//					string jointName = Joints[x]->getCharData();
+//
+//					//Remove the "#" at the start of it's name
+//					jointName.erase(0, 1);
+//
+//					//Compare
+//					if(jointName == ID)
+//					{
+//						//The name is the same, so set rootNode
+//						rootJoint = nodes[z];
+//							
+//						//No need to keep searching
+//						break;
+//					}
+//				}
+//
+//				//Found it, so leave
+//				if(rootJoint) break;
+//			}
+//
+//			//if(!rootJoint) continue;
+//			//CMESHMANAGER->SkinnedMeshes.push_back(new SkinnedMesh(Name, processMatrix(nodes[i]->getDescendant("matrix"))));
+//			//			//Set the COLLADA references for this mesh
+//			//CMESHMANAGER->SkinnedMeshes.back()->controller = controller;
+//			//CMESHMANAGER->SkinnedMeshes.back()->geometry = geometry;
+//			//CMESHMANAGER->SkinnedMeshes.back()->rootJoint = rootJoint;
+//
+//			////Add the Root Joint for this mesh
+//			//CMESHMANAGER->SkinnedMeshes.back()->Joints.push_back(Joint(rootJoint->getAttribute("name").data(), rootJoint->getAttribute("sid").data(), rootJoint));
+//			//CMESHMANAGER->SkinnedMeshes.back()->Joints.back().bind_matrix = processMatrix(rootJoint->getChild("matrix"));
+//			////Compile vertex components into one buffer for each Skinned Mesh and also combine Animation Keyframes list
+//			//for(unsigned int i = 0; i < CMESHMANAGER->SkinnedMeshes.size(); i++) 
+//			//{
+//			//	CMESHMANAGER->SkinnedMeshes[i]->combineComponents();
+//			//	CMESHMANAGER->SkinnedMeshes[i]->combineJointAnimations();
+//			//}
+//		}
+//		else
+//		{
+//			if(!library_images)
+//			{	
+//				if(!once)
+//				{
+//					CMESHMANAGER->AddNewMesh(m);
+//					once = true;
+//				}
+//			}
+//			else
+//			{
+//				if(!once)
+//				{
+//					CMESHMANAGER->AddNewMesh(m);
+//					once = true;
+//				}
+//				daeTArray<daeElementRef> images = library_images->getChildren();
+//				for(UINT i = 0; i < library_images->getChildren().getCount(); ++i )
+//				{
+//					string imageFileName = ObtainImageData(images[i]);
+//					CMESHMANAGER->LoadTextures(m, imageFileName);
+//				}
+//			}
+//		}
+//	}
+//}
+//void ColladaModelLoader::ObtainGeometriesData(daeElement *geometryElement)
+//{
+//	///ALL LIBRARY GEOMETRIES DATA////////////////////////////////////////////////////////////////////////////////////
+//	daeTArray<daeElementRef> geometries = geometryElement->getChildren();
+//	daeElement *g = geometries[0];
+//	CMESHMANAGER->GetMesh(m_iModelCount)->LoadBuffers(g);
+//}
+//
+//void ColladaModelLoader::ObtainEffectsData(daeElement *effectElement)
+//{
+//
+//}
+//
+//void ColladaModelLoader::ObtainMaterialData(daeElement *materialElement)
+//{
+//
+//}
+//
+//void ColladaModelLoader::ObtainLightsData(daeElement *lightsElement)
+//{
+//
+//}
+////Obtains the texture data from the <library_images> element
+//string ColladaModelLoader::ObtainImageData(daeElement *imageElement)
+//{
+//	//create a string stream of the char data that represents the triangle data
+//	std::stringstream stm(imageElement->getCharData());
+//	//g_dOutput->AddDataToFile("IMAGE FILE NAME DATA:");
+//	//g_dOutput->AddDataToFile(imageElement->getChild("init_from")->getCharData());
+//	return imageElement->getChild("init_from")->getCharData();
+//}
+//
+//
+/////REAL MATRIX CONVERSION FUNCTION WITHOUT DEBUGGING LOG OUTPUT /// UNCOMMENT WHEN NOT TESTING
+//XMMATRIX ColladaModelLoader::MatrixConversion(daeElement* matrix)
+//{
+//	//create a string stream of the matrix data that is in char format 
+//	std::stringstream stm(matrix->getCharData());
+//	XMMATRIX directXMatrix;
+//	XMMATRIX openGLMatrix;
+//	//Stream all the char data into the directxMatrix, though the data is still in the right hand coordinate system
+//	//Need to convert to Directx style matrix "Left handed coordinate system"
+//	for(int row = 0; row < 4; row++)
+//	{
+//		for(int column = 0; column < 4;column++)
+//		{
+//			stm >> openGLMatrix.m[row][column];
+//		}
+//	}
+//	//Convert the Open GL Matrix to DirectX Matrix
+//	for(int row = 0; row < 4; row++)
+//	{
+//		for(int column = 0; column < 4;column++)
+//		{
+//			directXMatrix.m[row][column] = openGLMatrix.m[column][row];
+//		}
+//	}
+//	return directXMatrix;
+//}
+//
+//void ColladaModelLoader::ObtainSkeletonData(daeElement* visualElement)
+//{
+//	daeTArray<daeElementRef> animations = library_animations->getChildren();
+//
+//	////Foreach <animation> node
+//	//	for(unsigned int i = 0; i < animations.getCount(); ++i)
+//	//	{
+//	//		//Get it's ID
+//	//		string ID = animations[i]->getAttribute("id").data();
+//
+//	//		//Check if any of the SkinnedMeshes has any Joint that is affected by this node
+//	//		for(unsigned int z = 0; z < CMESHMANAGER->SkinnedMeshes.size(); ++z)
+//	//		{
+//	//			for(unsigned int x = 0; x < CMESHMANAGER->SkinnedMeshes[z]->Joints.size(); ++x)
+//	//			{
+//	//				//Check if you can find this joint's name in the ID and if this <animation> node is for a matrix
+//	//				if((ID.find(CMESHMANAGER->SkinnedMeshes[z]->Joints[x].Name) != string::npos) && (ID.find("matrix") != string::npos))
+//	//				{
+//	//					//Process this <animation> node and store it in this Joint's Animation array
+//	//					processAnimation(&CMESHMANAGER->SkinnedMeshes[z]->Joints[x], x, animations[i]);
+//	//					break;
+//	//				}
+//	//			}
+//	//		}
+//	//	}
+//
+//}
+//
+////void ColladaModelLoader::processAnimation(Joint* joint, int jointIndex, daeElement* animation)
+////{
+////	//Get each <animation>
+////		daeTArray<daeElementRef> animations = library_animations->getChildren();
+////
+////		//Foreach <animation> node
+////		for(unsigned int i = 0; i < animations.getCount(); i++)
+////		{
+////			//Get it's ID
+////			string ID = animations[i]->getAttribute("id").data();
+////
+////			//Check if any of the SkinnedMeshes has any Joint that is affected by this node
+////			for(unsigned int z = 0; z < CMESHMANAGER->SkinnedMeshes.size(); z++)
+////			{
+////				for(unsigned int x = 0; x < CMESHMANAGER->SkinnedMeshes[z]->Joints.size(); x++)
+////				{
+////					//Check if you can find this joint's name in the ID and if this <animation> node is for a matrix
+////					if((ID.find(CMESHMANAGER->SkinnedMeshes[z]->Joints[x].Name) != string::npos) && (ID.find("matrix") != string::npos))
+////					{
+////						//Process this <animation> node and store it in this Joint's Animation array
+////						processAnimation(&CMESHMANAGER->SkinnedMeshes[z]->Joints[x], x, animations[i]);
+////						break;
+////					}
+////				}
+////			}
+////		}
+////}
+//
+//XMFLOAT4X4 ColladaModelLoader::processMatrix(daeElement* matrix)
+//	{
+//		XMFLOAT4X4 out;
+//		std::string world = matrix->getCharData();
+//		std::stringstream stm(world);
+//
+//		#pragma region Read the matrix
+//		stm >> out.m[0][0];
+//		stm >> out.m[0][1];
+//		stm >> out.m[0][2];
+//		stm >> out.m[0][3];
+//
+//		stm >> out.m[1][0];
+//		stm >> out.m[1][1];
+//		stm >> out.m[1][2];
+//		stm >> out.m[1][3];
+//		
+//		stm >> out.m[2][0];
+//		stm >> out.m[2][1];
+//		stm >> out.m[2][2];
+//		stm >> out.m[2][3];
+//		
+//		stm >> out.m[3][0];
+//		stm >> out.m[3][1];
+//		stm >> out.m[3][2];
+//		stm >> out.m[3][3];
+//		#pragma endregion
+//
+//		return out;
+//}

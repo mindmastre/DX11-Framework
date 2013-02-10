@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{6a885e4d-e075-461e-bfae-f0cc088d207b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Headers">
+      <UniqueIdentifier>{0bd2f594-30e1-47a7-98bc-d1d4e324d608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Source">
+      <UniqueIdentifier>{c3a8da2b-c4db-427d-a48d-a7c80118c52a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FX">
+      <UniqueIdentifier>{f62ed217-f730-4c7f-8bf5-cbf276729fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Primities">
+      <UniqueIdentifier>{4e9056ee-2780-4f57-a838-5868c3a5c284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Primities\Header Files">
+      <UniqueIdentifier>{95d4cdcf-be93-4919-ade8-4740522a1cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model Loader">
+      <UniqueIdentifier>{69473070-46d5-4a45-8c0d-659ec44b90af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model Loader\Header Files">
+      <UniqueIdentifier>{1a923491-f724-4ada-85eb-89c36f048a34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model Loader\Source Files">
+      <UniqueIdentifier>{0a778eae-41aa-4892-891a-11370e70da01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Primities\Source Files">
+      <UniqueIdentifier>{93e050ad-dea5-4bfb-a14e-6fc77fd7b593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Stuff">
+      <UniqueIdentifier>{d4923da3-f6b2-4006-b75c-0406aa2e56ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SuperParticles">
+      <UniqueIdentifier>{7f05a2ad-beb3-4e90-b835-4c2c9f1e623a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ZombieForce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\xnacollision.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Waves.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\TextureMgr.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\MathHelper.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\LightHelper.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\GeometryGenerator.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\GameTimer.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\dx11Util.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\DX11App.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DXEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\VectorTypes.cpp">
+      <Filter>Common\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DXBox.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXCylinder.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXGeoSphere.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXPlane.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXPyramid.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXSphere.cpp">
+      <Filter>Header Files\Primities\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model Loader\ColladaMesh.cpp">
+      <Filter>Header Files\Model Loader\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model Loader\ColladaMeshManager.cpp">
+      <Filter>Header Files\Model Loader\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model Loader\ColladaModelLoader.cpp">
+      <Filter>Header Files\Model Loader\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model Loader\ColladaVertex.cpp">
+      <Filter>Header Files\Model Loader\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX11MeshGeometry.cpp">
+      <Filter>Header Files\Model Loader\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Billboard.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SuperParticleSystem.cpp">
+      <Filter>Header Files\SuperParticles</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DModel.cpp">
+      <Filter>Header Files\Model Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelManager.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common\DX11App.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\dx11Util.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GameTimer.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\LightHelper.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\MathHelper.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\TextureMgr.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Waves.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\xnacollision.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\d3dx11effect.h">
+      <Filter>Common\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="DXEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GeometryGenerator.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\VectorTypes.h">
+      <Filter>Common\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitives.h">
+      <Filter>Header Files\Primities</Filter>
+    </ClInclude>
+    <ClInclude Include="DXBox.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXCylinder.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXGeoSphere.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXPlane.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXPyramid.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXSphere.h">
+      <Filter>Header Files\Primities\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model Loader\ColladaMesh.h">
+      <Filter>Header Files\Model Loader\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model Loader\ColladaMeshManager.h">
+      <Filter>Header Files\Model Loader\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model Loader\ColladaModelLoader.h">
+      <Filter>Header Files\Model Loader\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model Loader\ColladaVertex.h">
+      <Filter>Header Files\Model Loader\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DX11MeshGeometry.h">
+      <Filter>Header Files\Model Loader\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Billboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Joint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperParticleSystem.h">
+      <Filter>Header Files\SuperParticles</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DModel.h">
+      <Filter>Header Files\Model Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\SuperParticles</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Common\Effects11.lib">
+      <Filter>Common</Filter>
+    </Library>
+    <Library Include="Common\Effects11d.lib">
+      <Filter>Common</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FX\LightHelper.fx">
+      <Filter>FX</Filter>
+    </None>
+    <None Include="FX\Sky.fx">
+      <Filter>FX</Filter>
+    </None>
+    <None Include="libcollada14dom22-d.dll">
+      <Filter>Common</Filter>
+    </None>
+    <None Include="FX\Billboard.fx">
+      <Filter>FX</Filter>
+    </None>
+    <None Include="FX\Basic.fx">
+      <Filter>FX</Filter>
+    </None>
+    <None Include="FX\DeferredParticles.fx">
+      <Filter>FX</Filter>
+    </None>
+  </ItemGroup>
+</Project>
