@@ -46,7 +46,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\minizip\win32\lib;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\pcre\lib\vc9;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\libxml2\win32\lib;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
     <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -77,15 +77,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_WINDOWS;WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;DOM_EXPORT;DOM_DYNAMIC;NO_BOOST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\include\1.4;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d3d11.lib;d3dx11.lib;D3DCompiler.lib;dxerr.lib;dxgi.lib;dxguid.lib;d3d9.lib;d3dx9.lib;libcollada14dom22-d.lib;libxml2_a.lib;zlib.lib;wsock32.lib;pcre-d.lib;pcrecpp-d.lib;minizip-d.lib;libboost_filesystem-d.lib;libboost_system-d.lib;d3dx11.lib;D3DCompiler.lib;dxerr.lib;dxgi.lib;dxguid.lib;d3d9.lib;d3dx9.lib;libcollada14dom22-d.lib;libxml2_a.lib;zlib.lib;wsock32.lib;pcre-d.lib;pcrecpp-d.lib;minizip-d.lib;libboost_filesystem-d.lib;libboost_system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\build\vc10-1.4-d;C:\Users\Clayton Wallace\Desktop\Z-Force.git\trunk\DX11BaseFramework\collada-dom\dom\external-libs\boost\lib\vc9;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d11.lib;d3dx11.lib;D3DCompiler.lib;dxerr.lib;dxgi.lib;dxguid.lib;d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
