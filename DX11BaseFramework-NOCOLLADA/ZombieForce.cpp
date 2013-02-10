@@ -230,65 +230,35 @@ void ZombieForce::UpdateScene(float dt)
 	if( GetAsyncKeyState('D') & 0x8000 )
 		mCam.Strafe(10.0f*dt*MoveMultiplier);
 
-	//if( GetAsyncKeyState('T') & 0x8000 )
-	//	mesh->SetScale(mesh->GetScale() + (Vector3(.01f,.01f,-.01f)));
+	if( GetAsyncKeyState(VK_NUMPAD1) & 0x8000 )
+	{
+		testModel->ToggleScattering();
+	}
 
-	//if( GetAsyncKeyState('Q') & 0x8000 )
-	//	mesh->SetScale(mesh->GetScale() + (Vector3(-.01f,-.01f,.01f)));
+	if( GetAsyncKeyState(VK_NUMPAD2) & 0x8000 )
+	{
+		testModel->ToggleSobel();
+	}
 
-	//if( GetAsyncKeyState(VK_UP) & 0x8000 )
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,10,0)*dt));
+	if( GetAsyncKeyState(VK_NUMPAD3) & 0x8000 )
+	{
+		testModel->ToggleFog();
+	}
 
-	//if( GetAsyncKeyState(VK_RIGHT) & 0x8000 )
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(10,0,0)*dt));
+	if( GetAsyncKeyState(VK_NUMPAD4) & 0x8000 )
+	{
+		testModel->ToggleCelShading();
+	}
 
-	//if( GetAsyncKeyState(VK_DOWN) & 0x8000 )
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,-10,0)*dt));
+	if( GetAsyncKeyState(VK_NUMPAD5) & 0x8000 )
+	{
+		testModel->ToggleGlitter();
+	}
 
-	//if( GetAsyncKeyState(VK_LEFT) & 0x8000 )
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(-10,0,0)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD8) & 0x8000 )
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(-1,0,0)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD5) & 0x8000 )
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(1,0,0)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD7) & 0x8000 )
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(0,0,-1)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD9) & 0x8000 )
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(0,0,1)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD4) & 0x8000 )
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(0,-1,0)*dt));
-
-	//if( GetAsyncKeyState(VK_NUMPAD6) & 0x8000 )
-	//{
-	//	mesh->SetRotation(mesh->GetRotation() + (Vector3(0,1,0)*dt));
-	//}
-
-	//if( GetAsyncKeyState('I') & 0x8000 )
-	//{
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,0,10)*dt));
-	//}
-	//if( GetAsyncKeyState('K') & 0x8000 )
-	//{
-	//	//ColladaMesh* mesh = CMESHMANAGER->GetMesh(0);
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,0,-10)*dt));
-	//}
-
-	//if( GetAsyncKeyState('L') & 0x8000 )
-	//{
-	//	//ColladaMesh* mesh = CMESHMANAGER->GetMesh(0);
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,0,30)*dt));
-	//}
-
-	//if( GetAsyncKeyState('J') & 0x8000 )
-	//{
-	//	//ColladaMesh* mesh = CMESHMANAGER->GetMesh(0);
-	//	mesh->SetPosition(mesh->GetPosition() + (Vector3(0,0,-30)*dt));
-	//}
+	if( GetAsyncKeyState(VK_NUMPAD6) & 0x8000 )
+	{
+		testModel->ToggleGlass();
+	}
 
 	if( GetAsyncKeyState(VK_LCONTROL) & 0x8000 )
 	{

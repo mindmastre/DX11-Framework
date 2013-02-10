@@ -129,6 +129,13 @@ public:
 	XMFLOAT4X4 mTexTransform;
 	Material mBoxMat;
 	ID3D11ShaderResourceView* normalTexture;
+
+	void ToggleScattering();
+	void ToggleSobel();
+	void ToggleFog();
+	void ToggleCelShading();
+	void ToggleGlitter();
+	void ToggleGlass();
 private:
 	bool InitializeBuffers(ID3D11Device*, ModelSubset&);
 	void ShutdownBuffers();
@@ -147,4 +154,11 @@ private:
 
 	bool staticMesh;
 	unsigned int ID;
+
+	bool ScatteringFlag;
+	bool SobelFlag;
+	bool CelShadingFlag;
+	bool FogFlag;
+	bool GlitterFlag;
+	bool GlassFlag;
 };

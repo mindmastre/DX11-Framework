@@ -19,7 +19,8 @@ D3DModel::D3DModel()
 	mBoxMat.Ambient  = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 	mBoxMat.Diffuse  = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 	mBoxMat.Specular = XMFLOAT4(0.6f, 0.6f, 0.6f, 16.0f);
-	
+	ScatteringFlag = 	SobelFlag  = CelShadingFlag 
+		=	FogFlag = GlitterFlag = GlassFlag = false;
 }
 
 D3DModel::D3DModel(unsigned int id)
@@ -952,15 +953,15 @@ void D3DModel::RenderModel(ID3D11DeviceContext* deviceContext, ID3DX11EffectTech
 	Effects::BillboardFX->SetMaterial(mBoxMat);
 	Effects::BillboardFX->SetDiffuseMap(texture->GetTexture());
 	Effects::BillboardFX->SetNormalMap(normalTexture);
-	Effects::BillboardFX->SetSSFlag(false);
-	Effects::BillboardFX->SetSobelFlag(false);
-	Effects::BillboardFX->SetToonFlag(false);
-	Effects::BillboardFX->SetFogFlag(false);
+	Effects::BillboardFX->SetSSFlag(ScatteringFlag);
+	Effects::BillboardFX->SetSobelFlag(SobelFlag);
+	Effects::BillboardFX->SetToonFlag(CelShadingFlag);
+	Effects::BillboardFX->SetFogFlag(FogFlag);
 	Effects::BillboardFX->SetFogColor(Vector3(0,0,0));
 	Effects::BillboardFX->SetFogStart(10.0f);
 	Effects::BillboardFX->SetFogRange(100.0f);
-	Effects::BillboardFX->SetGlitterFlag(false);
-	Effects::BillboardFX->SetGlassFlag(false);
+	Effects::BillboardFX->SetGlitterFlag(GlitterFlag);
+	Effects::BillboardFX->SetGlassFlag(GlassFlag);
 	float num = (float)(rand()%100)/1000;
 	Effects::BillboardFX->SetRandomNumber(num);
 
@@ -974,5 +975,72 @@ void D3DModel::RenderModel(ID3D11DeviceContext* deviceContext, ID3DX11EffectTech
 		activeTech->GetPassByIndex(0)->Apply(0, deviceContext);
 
 		deviceContext->DrawIndexed(GetSubsets()[i].indices.size(), 0, 0);
+	}
+}
+
+void D3DModel::ToggleScattering()
+{
+	if(ScatteringFlag == true)
+	{
+		ScatteringFlag = false;
+	}
+	else
+	{
+		ScatteringFlag = true;
+	}
+}
+void D3DModel::ToggleSobel()
+{
+	if(SobelFlag == true)
+	{
+		SobelFlag = false;
+	}
+	else
+	{
+		SobelFlag = true;
+	}
+}
+void D3DModel::ToggleFog()
+{
+	if(FogFlag == true)
+	{
+		FogFlag = false;
+	}
+	else
+	{
+		FogFlag = true;
+	}
+}
+void D3DModel::ToggleCelShading()
+{
+	if(CelShadingFlag == true)
+	{
+		CelShadingFlag = false;
+	}
+	else
+	{
+		CelShadingFlag = true;
+	}
+}
+void D3DModel::ToggleGlitter()
+{
+	if(GlitterFlag == true)
+	{
+		GlitterFlag = false;
+	}
+	else
+	{
+		GlitterFlag = true;
+	}
+}
+void D3DModel::ToggleGlass()
+{
+	if(GlassFlag == true)
+	{
+		GlassFlag = false;
+	}
+	else
+	{
+		GlassFlag = true;
 	}
 }
