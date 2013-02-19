@@ -19,6 +19,8 @@ public:
 	Vector3 operator+= (const Vector3 &rhs);
 	Vector3 operator- (const Vector3 &rhs);
 	Vector3 operator+ (const Vector3 &rhs);
+	Vector3 operator+ (const float &rhs);
+	Vector3 operator/ (const float &rhs);
 	float operator* (const Vector3 &rhs); //dot product
 	Vector3 operator* (const float &rhs); //scalar product
 	Vector3 operator*= (const float &rhs);
@@ -106,5 +108,30 @@ public:
 		z += rhs.z;
 		w += rhs.w;
 		return *this;
+	}
+	
+	Vector4 normalize()
+	{
+		//A is the magnitude of the vector
+		float A = magnitude();
+		if (A == 0)
+			A = 1;
+
+		//vector components being normalized
+		x = x/A;
+		y = y/A;
+		z = z/A;
+		w = w/A;
+		return *this;
+	}
+
+	float magnitude()
+	{
+		return sqrt(sqrmagnitude());
+	}
+
+	float sqrmagnitude()
+	{
+		return x * x + y * y + z * z + w * w;
 	}
 };
