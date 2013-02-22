@@ -9,6 +9,7 @@ D3DModel::D3DModel()
 {
 	texture = 0;
 	staticMesh = true;
+	animationIndex = -1;
 	ID = nextID++;
 	XMMATRIX I = XMMatrixIdentity();
 	XMStoreFloat4x4(&mSphereWorld, I);
@@ -27,6 +28,7 @@ D3DModel::D3DModel(unsigned int id)
 {
 	texture = 0;
 	staticMesh = true;
+	animationIndex = -1;
 	ID = id;
 }
 
@@ -724,6 +726,15 @@ bool D3DModel::LoadAnimation(std::wstring fileName)
 	return true;
 }
 
+void D3DModel::SetAnimation(int animation)
+{
+	if(animation < animations.size())
+	{
+		animations[animationIndex].currAnimTime = 0.0f;
+		animationIndex = animation;
+	}
+}
+
 void D3DModel::Shutdown()
 {
 	ReleaseTexture();
@@ -731,24 +742,24 @@ void D3DModel::Shutdown()
 	ShutdownBuffers();
 }
 
-void D3DModel::Update(ID3D11DeviceContext* deviceContext, float dt, int animation)
+void D3DModel::Update(ID3D11DeviceContext* deviceContext, float dt)
 {
 	if(!staticMesh)
 	{
-		animations[animation].currAnimTime += dt;
+		animations[animationIndex].currAnimTime += dt;
 
-		if(animations[animation].currAnimTime > animations[animation].totalAnimTime)
+		if(animations[animationIndex].currAnimTime > animations[animationIndex].totalAnimTime)
 		{
-			animations[animation].currAnimTime = 0.0f;
+			animations[animationIndex].currAnimTime = 0.0f;
 		}
 
 		//determine the current frame
-		float currentFrame = animations[animation].currAnimTime * animations[animation].frameRate;
+		float currentFrame = animations[animationIndex].currAnimTime * animations[animationIndex].frameRate;
 		int frame0 = (int)floorf(currentFrame);
 		int frame1 = frame0 + 1;
 
 		//make sure not to go over the total frames
-		if(frame0 == animations[animation].numFrames-1)
+		if(frame0 == animations[animationIndex].numFrames-1)
 		{
 			frame1 = 0;
 		}
@@ -759,11 +770,11 @@ void D3DModel::Update(ID3D11DeviceContext* deviceContext, float dt, int animatio
 		//create a frame skeleton
 		std::vector<Joint> interpolatedSkeleton;
 
-		for(int i = 0; i < animations[animation].numJoints; i++)
+		for(int i = 0; i < animations[animationIndex].numJoints; i++)
 		{
 			Joint tempJoint;
-			Joint joint0 = animations[animation].frameSkeleton[frame0][i];
-			Joint joint1 = animations[animation].frameSkeleton[frame1][i];
+			Joint joint0 = animations[animationIndex].frameSkeleton[frame0][i];
+			Joint joint1 = animations[animationIndex].frameSkeleton[frame1][i];
 
 			//turn get the orientations of the joints as quaternions
 			D3DXQUATERNION joint0Orientation = D3DXQUATERNION(joint0.orientation.x, joint0.orientation.y, joint0.orientation.z, joint0.orientation.w);

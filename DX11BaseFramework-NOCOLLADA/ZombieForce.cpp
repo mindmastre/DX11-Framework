@@ -158,6 +158,9 @@ bool ZombieForce::Init()
 
 	testTexture->Initialize(md3dDevice, L"../Assets/Textures/american_body.jpg");
 
+	testModel->LoadAnimation(L"../Assets/Models/soldierTest.md5anim");
+	testModel->SetAnimation(0);
+
 	testModel->LoadTexture(testTexture);
 	HR(D3DX11CreateShaderResourceViewFromFile(md3dDevice, 
 		L"../Assets/Textures/stonenormals.jpg", 0, 0, &testModel->normalTexture, 0 ));
@@ -269,6 +272,8 @@ void ZombieForce::UpdateScene(float dt)
 	{
 		CreateBox();
 	}
+
+	testModel->Update(md3dImmediateContext, dt);
 
     //CMESHMANAGER->Update(dt);
 	myFirstSphere->SetRotation(myFirstSphere->GetRotation() + (Vector3(0,2,0)*dt));

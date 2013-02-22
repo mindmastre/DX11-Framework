@@ -114,8 +114,9 @@ public:
 	void LoadTexture(Texture*);
 	bool LoadModel(ID3D11Device*, std::wstring);
 	bool LoadAnimation(std::wstring);
+	void SetAnimation(int);
 	void Shutdown();
-	void Update(ID3D11DeviceContext*, float, int = 0);
+	void Update(ID3D11DeviceContext*, float);
 	unsigned int GetID();
 
 	int GetNumSubsets();
@@ -153,6 +154,7 @@ private:
 	Texture* texture;
 
 	bool staticMesh;
+	int animationIndex;
 	unsigned int ID;
 
 	bool ScatteringFlag;
