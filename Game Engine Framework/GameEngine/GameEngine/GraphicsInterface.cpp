@@ -73,7 +73,7 @@ bool GraphicsInterface::Initialize(HWND wndHandle)
 		return false;
 	}
 
-	camera->SetPosition(0.0f, 50.0f, -100.0f);
+	camera->SetPosition(0.0f, 0.0f, -10.0f);
 
 	modelManager = new ModelManager;
 	if(!modelManager)
@@ -88,7 +88,7 @@ bool GraphicsInterface::Initialize(HWND wndHandle)
 		return false;
 	}
 
-	result = testModel->LoadModel(D3D->GetDevice(), L"../GameEngine/Assets/3DModels/soldierTest.md5mesh");
+	result = testModel->LoadModel(D3D->GetDevice(), L"../GameEngine/Assets/3DModels/warrior.md5mesh");
 	if(!result)
 	{
 		return false;
@@ -100,11 +100,13 @@ bool GraphicsInterface::Initialize(HWND wndHandle)
 		return false;
 	}
 
-	result = testTexture->Initialize(D3D->GetDevice(), L"../GameEngine/Assets/Textures/american_body.jpg");
+	result = testTexture->Initialize(D3D->GetDevice(), L"../GameEngine/Assets/Textures/warrior.jpg");
 	if(!result)
 	{
 		return false;
 	}
+
+	result = testModel->LoadAnimation(L"../GameEngine/Assets/3DModels/warriorWalk.md5anim");
 
 	testModel->LoadTexture(testTexture);
 
@@ -201,6 +203,8 @@ void GraphicsInterface::Update(float dt)
 	}
 	CheckKeyInputs(dt);
 	//update models here
+
+	testModel->Update(D3D->GetDeviceContext(), dt, 0);
 
 	result = Render();
 	if(!result)

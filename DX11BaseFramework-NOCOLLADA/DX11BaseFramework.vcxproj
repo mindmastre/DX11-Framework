@@ -40,14 +40,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\8.0\Redist\D3D\x86;C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\Common;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>E:\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Clayton Wallace\Desktop\DX11-Framework\trunk\DX11BaseFramework\Common;E:\Microsoft DirectX SDK %28June 2010%29\Lib\x86;E:\desktop sc\EmergencySpace\Game Project\trunk\DX11BaseFramework-NOCOLLADA\Common;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;E:\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Microsoft DirectX SDK %28June 2010%29\Lib\x86;E:\desktop sc\EmergencySpace\Game Project\trunk\DX11BaseFramework-NOCOLLADA\Common;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <ExecutablePath>E:\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

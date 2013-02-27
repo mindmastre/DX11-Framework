@@ -148,7 +148,7 @@ bool ZombieForce::Init()
 		return false;
 	}
 
-	testModel->LoadModel(md3dDevice, L"../Assets/Models/soldierTest.md5mesh");
+	testModel->LoadModel(md3dDevice, L"../Assets/Models/warriorTest.md5mesh");
 
 	testTexture = new Texture;
 	if(!testModel)
@@ -156,9 +156,9 @@ bool ZombieForce::Init()
 		return false;
 	}
 
-	testTexture->Initialize(md3dDevice, L"../Assets/Textures/american_body.jpg");
+	testTexture->Initialize(md3dDevice, L"../Assets/Textures/warrior.jpg");
 
-	testModel->LoadAnimation(L"../Assets/Models/soldierTest.md5anim");
+	testModel->LoadAnimation(L"../Assets/Models/warriorWalk.md5anim");
 	testModel->SetAnimation(0);
 
 	testModel->LoadTexture(testTexture);

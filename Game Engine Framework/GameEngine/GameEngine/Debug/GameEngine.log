@@ -1,20 +1,49 @@
-﻿Build started 2/1/2013 6:59:43 PM.
-     1>Project "E:\desktop sc\EmergencySpace\GameEngine\GameEngine\GameEngine.vcxproj" on node 2 (build target(s)).
+﻿Build started 2/24/2013 10:19:55 PM.
+     1>Project "E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\GameEngine\GameEngine.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\GameEngine.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         e:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GraphicsInterface.cpp
+         GraphicsInterface.cpp
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         All outputs are up-to-date.
+         e:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\Debug\GameEngine.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GameEngine.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\Debug\GameEngine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\Debug\GameEngine.lib" /MACHINE:X86 Debug\GameEngine.exe.embed.manifest.res
+         Debug\BaseEntity.obj
+         Debug\D3DApp.obj
+         Debug\D3DCamera.obj
+         Debug\D3DLight.obj
+         Debug\D3DModel.obj
+         Debug\D3DTexture.obj
+         Debug\EntityManager.obj
+         Debug\GameInterface.obj
+         Debug\GameMain.obj
+         Debug\GameOptions.obj
+         Debug\GraphicsInterface.obj
+         Debug\LightShader.obj
+         Debug\Matrix2D.obj
+         Debug\Matrix3D.obj
+         Debug\Matrix4D.obj
+         Debug\ModelManager.obj
+         Debug\Quaternion.obj
+         Debug\TextureManager.obj
+         Debug\Timer.obj
+         Debug\Vector2D.obj
+         Debug\Vector3D.obj
+         Debug\Vector4D.obj
+         Debug\WinMain.obj
+         Debug\WinUtil.obj
        Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\GameEngine.exe.embed.manifest" /manifest Debug\GameEngine.exe.intermediate.manifest
          All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         GameEngine.vcxproj -> E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\Debug\GameEngine.exe
        FinalizeBuildStatus:
          Deleting file "Debug\GameEngine.unsuccessfulbuild".
          Touching "Debug\GameEngine.lastbuildstate".
-     1>Done Building Project "E:\desktop sc\EmergencySpace\GameEngine\GameEngine\GameEngine.vcxproj" (build target(s)).
+     1>Done Building Project "E:\desktop sc\EmergencySpace\Game Project\trunk\Game Engine Framework\GameEngine\GameEngine\GameEngine.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.11
+Time Elapsed 00:00:01.80

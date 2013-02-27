@@ -728,9 +728,12 @@ bool D3DModel::LoadAnimation(std::wstring fileName)
 
 void D3DModel::SetAnimation(int animation)
 {
-	if(animation < animations.size())
+	if(animation < (int)animations.size())
 	{
-		animations[animationIndex].currAnimTime = 0.0f;
+		if(animationIndex > -1)
+		{
+			animations[animationIndex].currAnimTime = 0.0f;
+		}
 		animationIndex = animation;
 	}
 }
@@ -844,6 +847,7 @@ void D3DModel::Update(ID3D11DeviceContext* deviceContext, float dt)
 
 				subsets[i].positions[j] = tempVert.Pos;
 				subsets[i].vertices[j].Normal = tempVert.Normal;
+				XMStoreFloat3(&subsets[i].vertices[j].Normal, XMVector3Normalize(XMLoadFloat3(&subsets[i].vertices[j].Normal)));
 			}
 			//store the positions into the vertices for the subset
 			for(unsigned int j = 0; j < subsets[i].vertices.size(); j++)
