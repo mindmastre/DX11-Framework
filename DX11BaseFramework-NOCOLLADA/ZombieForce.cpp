@@ -148,7 +148,7 @@ bool ZombieForce::Init()
 		return false;
 	}
 
-	testModel->LoadModel(md3dDevice, L"../Assets/Models/warriorTest.md5mesh");
+	testModel->LoadModel(md3dDevice, L"../Assets/Models/warrior.md5mesh");
 
 	testTexture = new Texture;
 	if(!testModel)

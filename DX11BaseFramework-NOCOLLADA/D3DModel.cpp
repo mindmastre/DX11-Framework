@@ -722,19 +722,23 @@ bool D3DModel::LoadAnimation(std::wstring fileName)
 		return false;
 	}
 
-	staticMesh = false;
 	return true;
 }
 
 void D3DModel::SetAnimation(int animation)
 {
-	if(animation < (int)animations.size())
+	if(animation < (int)animations.size() && animation > -1)
 	{
 		if(animationIndex > -1)
 		{
 			animations[animationIndex].currAnimTime = 0.0f;
 		}
 		animationIndex = animation;
+		staticMesh = false;
+	}
+	else
+	{
+		staticMesh = true;
 	}
 }
 
