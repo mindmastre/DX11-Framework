@@ -862,11 +862,11 @@ void D3DModel::Update(ID3D11DeviceContext* deviceContext, float dt)
 			D3D11_MAPPED_SUBRESOURCE mappedVertBuff;
 			HRESULT hr = deviceContext->Map(subsets[i].vertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedVertBuff);
 
-			memcpy(mappedVertBuff.pData, &subsets[i].vertices[0], (sizeof(VertexData) * subsets[i].vertices.size()));
+			memcpy(mappedVertBuff.pData, &subsets[i].vertices[0], (sizeof(Vertex::Basic32) * subsets[i].vertices.size()));
 
 			deviceContext->Unmap(subsets[i].vertexBuffer, 0);
 
-			deviceContext->UpdateSubresource(subsets[i].vertexBuffer, 0, NULL, &subsets[i].vertices[0], 0, 0);
+			//deviceContext->UpdateSubresource(subsets[i].vertexBuffer, 0, NULL, &subsets[i].vertices[0], 0, 0);
 		}
 	}
 }
@@ -917,7 +917,7 @@ bool D3DModel::InitializeBuffers(ID3D11Device* device, ModelSubset& subset)
 	ZeroMemory(&vertexBufferDesc, sizeof(vertexBufferDesc));
 
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	vertexBufferDesc.ByteWidth = sizeof(VertexData) * subset.vertices.size();
+	vertexBufferDesc.ByteWidth = sizeof(Vertex::Basic32) * subset.vertices.size();
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	vertexBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	vertexBufferDesc.MiscFlags = 0;
